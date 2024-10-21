@@ -7,8 +7,8 @@ class Controller:
     def compute_control(self, reference: float, observation: float) -> float:
         error = reference - observation
         # u[t] = Kp * e[t] + Kd * (e[t] - e[t-1])
-        derivative = error - self.previous_error
-        control_action = self.Kp * error + self.Kd * derivative
+        derivative = error - self.prev_error
+        control_action = self.kp * error + self.kd * derivative
         self.prev_error = error
         return control_action
 
