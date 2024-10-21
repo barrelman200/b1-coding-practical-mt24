@@ -68,6 +68,11 @@ class Mission:
     cave_height: np.ndarray
     cave_depth: np.ndarray
 
+    def __init__(self, reference: np.ndarray, cave_height: np.ndarray, cave_depth: np.ndarray):
+        self.reference = reference
+        self.cave_height = cave_height
+        self.cave_depth = cave_depth
+
     @classmethod
     def random_mission(cls, duration: int, scale: float):
         (reference, cave_height, cave_depth) = generate_reference_and_limits(duration, scale)
